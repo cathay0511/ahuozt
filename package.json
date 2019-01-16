@@ -1,0 +1,28 @@
+{
+  "name": "ahuozt",
+  "version": "1.0.0",
+  "description": "a simple demo of react",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cathay0511/ahuozt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cathay0511/ahuozt/issues"
+  },
+  "homepage": "https://github.com/cathay0511/ahuozt#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
+  }
+}
