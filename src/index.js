@@ -1,4 +1,6 @@
-import React, { render, Component } from './azt';
+import React from './element';
+import render from './render';
+import Component from './component';
 
 /* Playground: */
 class TodoItem extends Component {
@@ -10,22 +12,30 @@ class TodoItem extends Component {
   }
 }
 
+const MOCK_DATA = {
+  input: '',
+  items: [{
+    id: Math.random(),
+    text: 'Goal #1'
+  }, {
+    id: Math.random(),
+    text: 'Goal #2'
+  }, {
+    id: Math.random(),
+    text: 'Goal #3'
+  }]
+}
+
 class Todo extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      input: '',
-      items: [],
-    };
-    this.handleAdd('Goal #1');
-    this.handleAdd('Goal #2');
-    this.handleAdd('Goal #3');
+    this.state = Object.assign({}, MOCK_DATA);
   }
   
   handleInput(e) {
     this.setState({
-       input: e.target.value,
-       items: this.state.items,
+      input: e.target.value,
+      items: this.state.items,
     });
   }
   
