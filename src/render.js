@@ -1,3 +1,5 @@
+import Component from './component'
+
 const RENDER_TYPE_PRIM = 'prime'         // string || boolean 
 const RENDER_TYPE_BASIC = 'basic'        // divs
 const RENDER_TYPE_COM = 'component'      // components
@@ -49,16 +51,6 @@ const _basicRender = (vdom, parent) => {
     return dom
 }
 
-const _comRender = (vdom, parent) => {
-    const props = Object.assign({}, vdom.props, {children: vdom.children});
-    if (Component.isPrototypeOf(vdom.type)) {
-        const instance = new (vdom.type)(props);
-        return render(instance.render(), parent);
-    } else {
-        return render(vdom.type(props), parent);
-    }
-}
-
 const render = (vdom, parent = null) => {
     let dom = null
     switch (_renderType(vdom)) {
@@ -69,7 +61,7 @@ const render = (vdom, parent = null) => {
             dom = _basicRender(vdom, parent)
             break
         case RENDER_TYPE_COM:
-            dom = _comRender(vdom, parent)
+            dom = Component.render(vdom, parent)
             break
         default:
             throw new Error(`Invalid VDOM: ${vdom}.`)
@@ -77,13 +69,4 @@ const render = (vdom, parent = null) => {
     return dom
 }
 
-class Component {
-    constructor(props) {
-        this.props = props || {};
-    }
-}
-
-export {
-    render,
-    Component
-}
+export default render
