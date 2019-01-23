@@ -23,10 +23,7 @@ const setAttribute = (dom, key, value) => {
     }
 }
 
-export default {
-    createElement
-}
-
 export {
+    createElement,
     setAttribute
 }
